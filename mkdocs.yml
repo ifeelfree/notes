@@ -1,0 +1,5 @@
+site_name: Technical Notes
+theme:
+  name: 'material'
+nav:
+  - Home: index.md
