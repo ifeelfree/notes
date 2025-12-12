@@ -3,3 +3,6 @@ theme:
   name: 'material'
 nav:
   - Home: index.md
+  - Computer:
+      - PopularApps:
+            - "computer/popularapps/mkdocs.md"
