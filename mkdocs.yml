@@ -4,5 +4,7 @@ theme:
 nav:
   - Home: index.md
   - Computer:
+      - Linux:
+        - "computer/linux/ubuntu.md"
       - PopularApps:
-            - "computer/popularapps/mkdocs.md"
+        - "computer/popularapps/mkdocs.md"
