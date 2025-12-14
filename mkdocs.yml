@@ -8,3 +8,6 @@ nav:
         - "computer/linux/ubuntu.md"
       - PopularApps:
         - "computer/popularapps/mkdocs.md"
+  - Computer Languages:
+      - Cuda:
+        - "languages/cuda/cuda.md"
