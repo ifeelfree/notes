@@ -67,6 +67,9 @@ MLOps stands for Machine Learning Operations. MLOps is a core function of Machin
 A machine learning model is a file that has 
 been trained to recognize certain types of patterns. 
 
+### 4.4 TensorFlow
+
+TensorFlow is a popular deep learning framework widely used in the industry. 
 
 ## 5. Sensors 
 

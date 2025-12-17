@@ -11,3 +11,10 @@ nav:
   - Computer Languages:
       - Cuda:
         - "languages/cuda/cuda.md"
+      - Python:
+        - "languages/python/python.md"
+  - Machine Learning:
+      - TensorFlow:
+        - "machine_learning/tensorflow/tensorflow.md"
+      - MLops:
+        - "machine_learning/mlops/hydra.md"
