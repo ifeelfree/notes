@@ -24,6 +24,11 @@
 
 - [The Three Keras Model Paradigms: A Practical Guide for TensorFlow Practitioners]()
 
+- [Netron: The Neural Network Visualizer Every ML Engineer Needs]()
+
+
+- [Calling a PyTorch Model Inside a TensorFlow Keras Model: A Practical Inference-Only Pattern]()
+
 ## Model Training Pipeline
 
 - [Callbacks in TensorFlow model.fit()]()
