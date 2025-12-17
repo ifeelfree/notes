@@ -18,7 +18,11 @@
 
 - [A Practical Toolkit for Debugging Keras Models]()
 
+- [Writing a Robust Custom Keras Layer: A Practical Tutorial]()
+
 - [Saving and Loading Keras Models: Different Approaches](https://medium.com/@majianglin2003/saving-and-loading-keras-models-different-approaches-30e9e1e3030e)
+
+- [The Three Keras Model Paradigms: A Practical Guide for TensorFlow Practitioners]()
 
 ## Model Training Pipeline
 
