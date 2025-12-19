@@ -31,6 +31,8 @@
 
 ## Model Training Pipeline
 
+- [The `training` Argument in Keras: What It Really Means and How to Use It Correctly]()
+
 - [Callbacks in TensorFlow model.fit()]()
 
 - [Understanding fit, evaluate, and predict: How Keras Models Really Work](https://majianglin2003.medium.com/understanding-fit-evaluate-and-predict-how-keras-models-really-work-49b53973ce1a?postPublishedType=initial)
@@ -42,3 +44,8 @@
 - [Designing a Keras Model with Shared Weights for Training and Validation]()
 
 
+## Model Deployment
+
+- [Post-Training Quantization (PTQ) in TensorFlow Keras]()
+
+- [A Practical Guide to Quantization-Aware Training (QAT) in TensorFlow]()
