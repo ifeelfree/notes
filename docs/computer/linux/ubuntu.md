@@ -11,3 +11,5 @@
 ## Ubuntu Apps
 
 - [Popular Apps on Ubuntu: FreeTube-A Private YouTube Client for Ubuntu]()
+
+- [How to Use Rclone to Manage Google Drive on Ubuntu 24.04](https://medium.com/dev-genius/how-to-use-rclone-to-manage-google-drive-on-ubuntu-24-04-9e3a2712312d)
