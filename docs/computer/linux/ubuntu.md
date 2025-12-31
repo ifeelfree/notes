@@ -13,3 +13,7 @@
 - [Popular Apps on Ubuntu: FreeTube-A Private YouTube Client for Ubuntu]()
 
 - [How to Use Rclone to Manage Google Drive on Ubuntu 24.04](https://medium.com/dev-genius/how-to-use-rclone-to-manage-google-drive-on-ubuntu-24-04-9e3a2712312d)
+
+## Ubuntu Helpdesk
+
+- [How I Solved the “Bluetooth Stuck in Searching” Problem on Ubuntu 24.04](https://medium.com/@majianglin2003/how-i-solved-the-bluetooth-stuck-in-searching-problem-on-ubuntu-24-04-59fb202c9d91)
