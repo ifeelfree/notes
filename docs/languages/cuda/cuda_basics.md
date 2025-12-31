@@ -39,13 +39,15 @@ section.small {
 
 # CUDA Fundamentals
 
+
 --- 
 
-# Part 1: GPU/CPU
-
- 
+## GPU/CPU
+## GPU
 
 ---
+
+ 
 
 
 
@@ -58,11 +60,11 @@ section.small {
 
 
 
-# 1.1 GPU/CPU
+# GPU/CPU
 
 ---
 
-## CPU vs GPU
+## What makes GPU different from CPU?
 
 ![w:700](./img/image.png)
 
@@ -74,7 +76,7 @@ GPUs rely more on latency hiding than CPUs to achieve high performance.
 
 <!-- _class: small -->
 
-## CPU and GPU architectural difference
+## GPU and CPU architectural difference
  
 | Feature          | CPU               | GPU                   |
 | ---------------- | ----------------- | --------------------- |
@@ -103,7 +105,16 @@ CPU to manage and launch work while offloading massively parallel computations t
  
 ---
 
+__cuda demo__: the GPU kenerl is marked with the `__global__` qualifier.
+
 ```
+
+__global__ void vector_add(const float *A, const float *B, float *C, int ds){
+
+  int idx = threadIdx.x+blockDim.x*blockIdx.x;
+  if (idx < ds)
+    C[idx] = A[idx] + B[idx];
+}
 
 void main(){
     float *a, *b, *out;
@@ -122,21 +133,31 @@ void main(){
 
 ---
 
-nvcc
+GPU kernel is compiled with __nvcc__
 
-- ``` __global__```
+- ``` __global__```: running kernels from the host
 
-- ``` __device__ ```
-
-
-gcc, cl.exe
-
-- ``` __host__ ```
+- ``` __device__ ```: running kernels from the device
 
 
---- 
+CPU codes are compiled with __gcc__, __cl.exe__
 
-Triple angle brackets maker
+- ``` __host__ ```: running codes from the host
+
+ 
+---
+
+## Other examples
+
+- [matrix multiplication.cu](./code/matrix_mul.cu)
+
+---
+
+
+<!-- _class: center -->
+
+# GPU
+
 
 ---
 
@@ -177,103 +198,10 @@ int main() {
 
 
 
----
-
-<!-- _class: center -->
-
-# 1.2 Thread
-
----
-
-# IDs
-
-- blockIdx, threadIdx   <3D>
-- blockDim, gridDim  <3D>
-
----
-
-## Global Thread ID 
-
-![w:800](https://developer-blogs.nvidia.com/wp-content/uploads/2017/01/Even-easier-intro-to-CUDA-image.png)
+ 
 
 --- 
-
-## Kernel execution time
-
----
-<!-- _class: center -->
-
-# 1.3 Memory
-
----
-
-## Host and device memory transfer 
-
-```
-cudaMemcpy(d_y, y, N*sizeof(float), cudaMemcpyHostToDevice);
-
-cudaMemcpy(y, d_y, N*sizeof(float), cudaMemcpyDeviceToHost);
-```
-- data transfer between CPU and GPU 
-
-- We need to call `cudaDeviceSynchronize()` to ensure all GPU operations are completed before copying data from the GPU to the CPU; however, synchronization is not required when copying data from the CPU to the GPU.
-
-- We use `cudaMalloc` and `cudaFree` to manage GPU memories.
-
----
-
-## Memory brandwidth 
-
-
---- 
-
-## Computational throughput
-
-
----
-
-<!-- _class: center -->
-
-# 1.4 Toolkit
-
----
-
-## nvcc
-
-`nvcc vector_add.cu -o vector_add`
-
----
-
-## nvprof
-
-`nvprof ./vector_add`
-
-```
-==6326== Profiling application: ./vector_add
-==6326== Profiling result:
-Time(%)      Time     Calls       Avg       Min       Max  Name
- 97.55%  1.42529s         1  1.42529s  1.42529s  1.42529s  vector_add(float*, float*, float*, int)
-  1.39%  20.318ms         2  10.159ms  10.126ms  10.192ms  [CUDA memcpy HtoD]
-  1.06%  15.549ms         1  15.549ms  15.549ms  15.549ms  [CUDA memcpy DtoH]
-
-```
-
----
-
-# Part 2: CUDA Libraries
-
----
-
-## Thrust
-
-Thrust is a powerful library of parallel algorithms and data structures.
-
----
-
-## cub
-
-CUB provides state-of-the-art, reusable software components for every layer of the CUDA programming model.
-
-
+ 
+ 
  
 

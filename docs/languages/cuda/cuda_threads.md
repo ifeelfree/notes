@@ -36,7 +36,25 @@ section.small {
 
 
 
+<!-- _class: center -->
+
 # CUDA Threads
+
+
+
+---
+
+# IDs
+
+- blockIdx, threadIdx   <3D>
+- blockDim, gridDim  <3D>
+
+---
+
+## Global Thread ID 
+
+![w:800](https://developer-blogs.nvidia.com/wp-content/uploads/2017/01/Even-easier-intro-to-CUDA-image.png)
+
 
 --- 
 # Warps
