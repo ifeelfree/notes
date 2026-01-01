@@ -280,10 +280,86 @@ __Demo Shared Memory and Global Memory Comparison__
 
 [matrix row/col sum.cu](./code/matrix_sum.cu)
 
+--- 
+<!-- _class: center -->
 
+# Atomics 
 
+--- 
 
+```
+const size_t N = 8ULL*1024ULL*1024ULL;   
+const int BLOCK_SIZE = 256;   
+__global__ void atomic_red(const float *gdata, float *out){
+  size_t idx = threadIdx.x+blockDim.x*blockIdx.x;
+  if (idx < N) atomicAdd(out, gdata[idx]);
+}
 
+cudaMemset(d_sum, 0, sizeof(float));
+  
+cudaCheckErrors("cudaMemset failure");
 
+atomic_red<<<(N+BLOCK_SIZE-1)/BLOCK_SIZE, BLOCK_SIZE>>>(d_A, d_sum);
 
+```
 
+--- 
+
+```
+
+__global__ void reduce_a(float *gdata, float *out){
+     __shared__ float sdata[BLOCK_SIZE];
+     int tid = threadIdx.x;
+     sdata[tid] = 0.0f;
+     size_t idx = threadIdx.x+blockDim.x*blockIdx.x;
+
+     while (idx < N) {  // grid stride loop to load data
+        sdata[tid] += gdata[idx];
+        idx += gridDim.x*blockDim.x;  
+        }
+
+     for (unsigned int s=blockDim.x/2; s>0; s>>=1) {
+        __syncthreads();
+        if (tid < s)  // parallel sweep reduction
+            sdata[tid] += sdata[tid + s];
+        }
+     if (tid == 0) atomicAdd(out, sdata[0]);
+  }
+
+```
+
+---
+
+<!-- _class: center -->
+
+# Warp Shuffle 
+
+---
+
+```
+__global__ void reduce_ws(float *gdata, float *out){
+     __shared__ float sdata[32];
+     int tid = threadIdx.x;
+     int idx = threadIdx.x+blockDim.x*blockIdx.x;
+     float val = 0.0f;
+     unsigned mask = 0xFFFFFFFFU;
+     int lane = threadIdx.x % warpSize;
+     int warpID = threadIdx.x / warpSize;
+     while (idx < N) {   
+        val += gdata[idx];
+        idx += gridDim.x*blockDim.x;  
+        }
+
+    for (int offset = warpSize/2; offset > 0; offset >>= 1) 
+       val += __shfl_down_sync(mask, val, offset);
+    if (lane == 0) sdata[warpID] = val;
+   __syncthreads(); // put warp results in shared mem
+
+    if (warpID == 0){
+       val = (tid < blockDim.x/warpSize)?sdata[lane]:0;
+       for (int offset = warpSize/2; offset > 0; offset >>= 1) 
+          val += __shfl_down_sync(mask, val, offset);
+       if  (tid == 0) atomicAdd(out, val);
+     }
+}
+```
