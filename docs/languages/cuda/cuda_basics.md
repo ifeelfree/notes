@@ -201,7 +201,13 @@ int main() {
  
 
 --- 
+
+- [CUDA GPU Compute Capability](https://developer.nvidia.com/cuda/gpus?utm_source=chatgpt.com)
+
+- [Legacy CUDA GPU Compute Capability](https://developer.nvidia.com/cuda/gpus/legacy)
  
+
+- [GPU Comparison Guides](https://www.rightnowai.co/guides/gpu-comparison?utm_source=chatgpt.com)
  
  
 

@@ -51,7 +51,13 @@ section.small {
 
 ![w:1000](https://docs.nvidia.com/cuda/cuda-c-programming-guide/_images/gpu-devotes-more-transistors-to-data-processing.png)
 
- 
+--- 
+
+![w:1100](./img/cpu_gpu_mem.png)
+
+---
+
+![w:1100](./img/gpu_mem.png)
 
 ---
 
@@ -67,6 +73,57 @@ cudaMemcpy(y, d_y, N*sizeof(float), cudaMemcpyDeviceToHost);
 - We need to call `cudaDeviceSynchronize()` to ensure all GPU operations are completed before copying data from the GPU to the CPU; however, synchronization is not required when copying data from the CPU to the GPU.
 
 - We use `cudaMalloc` and `cudaFree` to manage GPU memories.
+
+---
+
+<!-- _class: center -->
+
+# Global Memory
+
+---
+
+- Loads:
+  - Cache as default
+  - Sequence: L1 cache, L2 cache, GMEM
+  - The granularity is 128-byte  
+  - It is also possible to use the non-cache mode, and in this case the granularity is 32-byte
+
+- Stores:
+  - Invalidate L1, write back L2 
+
+--- 
+
+# Coalescing in GMEM
+
+```
+
+// matrix row-sum kernel
+__global__ void row_sums(const float *A, float *sums, size_t ds){
+  int idx = threadIdx.x+blockDim.x*blockIdx.x; // create typical 1D thread index from built-in variables
+  if (idx < ds){
+    float sum = 0.0f;
+    for (size_t i = 0; i < ds; i++)
+      sum += A[idx*ds+i];        
+    sums[idx] = sum;
+}}
+
+```
+
+---
+
+# Non-Coalescing in GMEM
+
+```
+
+__global__ void column_sums(const float *A, float *sums, size_t ds){
+  int idx = threadIdx.x+blockDim.x*blockIdx.x;  
+  if (idx < ds){
+    float sum = 0.0f;
+    for (size_t i = 0; i < ds; i++)
+      sum += A[idx+ds*i];    
+    sums[idx] = sum;
+}}
+```
 
 ---
 
@@ -115,7 +172,7 @@ out[gindex] = result;
 
 --- 
 
-__Another Shared Memory Demo__
+__Shared Memory Demo: Matrix Multiplication__
 
 ```
 const int DSIZE = 8192;
@@ -165,6 +222,68 @@ __global__ void mmul(const float *A, const float *B, float *C, int ds) {
 - Second barrier: make sure shared memory is fully read before it is reused. 
 
 - [matrix multiplication with shared memory.cu](./code/matrix_mul_shared.cu)
+
 ---
+
+__Shared Memory Demo: Matrix Row Summrization__
+
+
+```
+
+__global__ void row_sums(const float *A, float *sums, size_t ds){
+
+  int idx = blockIdx.x; // our block index becomes our row indicator
+  if (idx < ds){
+     __shared__ float sdata[block_size];
+     int tid = threadIdx.x;
+     sdata[tid] = 0.0f;
+     size_t tidx = tid;
+
+     while (tidx < ds) {  // block stride loop to load data
+        sdata[tid] += A[idx*ds+tidx];
+        tidx += blockDim.x;  
+        }
+
+     for (unsigned int s=blockDim.x/2; s>0; s>>=1) {
+        __syncthreads();
+        if (tid < s)  // parallel sweep reduction
+            sdata[tid] += sdata[tid + s];
+        }
+     if (tid == 0) sums[idx] = sdata[0];
+  }
+}
+```
+---
+
+```
+const size_t DSIZE = 16384;      // matrix side dimension
+const int block_size = 256;  // CUDA maximum is 1024
+
+float *h_A, *h_sums, *d_A, *d_sums;
+h_A = new float[DSIZE*DSIZE];  // allocate space for data in host memory
+h_sums = new float[DSIZE]();
+for (int i = 0; i < DSIZE*DSIZE; i++)  // initialize matrix in host memory
+  h_A[i] = 1.0f;
+cudaMalloc(&d_A, DSIZE*DSIZE*sizeof(float));  // allocate device space for A
+cudaMalloc(&d_sums, DSIZE*sizeof(float));  // allocate device space for vector d_sums
+cudaCheckErrors("cudaMalloc failure"); // error checking
+// copy matrix A to device:
+cudaMemcpy(d_A, h_A, DSIZE*DSIZE*sizeof(float), cudaMemcpyHostToDevice);
+cudaCheckErrors("cudaMemcpy H2D failure");
+//cuda processing sequence step 1 is complete
+row_sums<<<DSIZE, block_size>>>(d_A, d_sums, DSIZE);
+```
+---
+
+__Demo Shared Memory and Global Memory Comparison__
+
+
+[matrix row/col sum.cu](./code/matrix_sum.cu)
+
+
+
+
+
+
 
 
