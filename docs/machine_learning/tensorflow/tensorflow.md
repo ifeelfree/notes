@@ -12,6 +12,8 @@
 
 - [Understanding When to Use tf.py_function in TensorFlow](https://majianglin2003.medium.com/understanding-when-to-use-tf-py-function-in-tensorflow-25b01fb08dfb?postPublishedType=initial)
 
+- [Optimizing Your TensorFlow Input Pipeline: CPU vs. GPU Augmentation and How to Find the Bottleneck](https://medium.com/dev-genius/optimizing-your-tensorflow-input-pipeline-cpu-vs-gpu-augmentation-and-how-to-find-the-bottleneck-47f43a7971fd)
+
 ## Model 
 
 - [Inspecting an Individual Keras Layer: Visualization and Summaries](https://medium.com/dev-genius/inspecting-an-individual-keras-layer-visualization-and-summaries-8dd939008e6d)
