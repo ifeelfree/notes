@@ -363,3 +363,32 @@ __global__ void reduce_ws(float *gdata, float *out){
      }
 }
 ```
+
+---
+
+<!-- _class: center -->
+
+# Unified/Managed Memory 
+
+---
+
+- Allocate memory once with cudaMallocManaged
+
+- The same pointer is valid on both CPU and GPU
+
+- The system automatically migrates pages between CPU and GPU memory on demand
+
+- Oversubscribe GPU memory (Pascal+). 
+
+- CPU/GPU memory conherence. 
+
+
+--- 
+
+![w:750](./img/a_img.png) ![w:380](./img/b_img.png)
+
+- 
+
+---
+
+
