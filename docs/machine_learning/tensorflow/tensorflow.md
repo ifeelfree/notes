@@ -1,5 +1,9 @@
 # TensorFlow
 
+## Summary
+
+- [Designing a Production-Ready Deep Learning Image Enhancement TensorFlow Framework: An End-to-End Software Architecture](https://medium.com/@majianglin2003/designing-a-production-ready-deep-learning-image-enhancement-tensorflow-framework-an-end-to-end-4df6be9a0080)
+
 ## Dataset 
 
 - [Writing and Reading Datasets with TFRecord and LMDB in TensorFlow](https://medium.com/@majianglin2003/writing-and-reading-datasets-with-tfrecord-and-lmdb-in-tensorflow-a49d6058b095)

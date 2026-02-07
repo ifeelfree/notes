@@ -22,7 +22,8 @@ CUDA (Compute Unified Device Architecture) is NVIDIA's parallel computing platfo
 
 CMake is cross-platform free and open-source software for build automation, testing, packaging and installation of software by using a compiler-independent method.
  
-
+### 1.5 C++
+ 
 
 ## 2. Computer
 ### 2.1 Linux 

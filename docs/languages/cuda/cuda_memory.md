@@ -387,8 +387,98 @@ __global__ void reduce_ws(float *gdata, float *out){
 
 ![w:750](./img/a_img.png) ![w:380](./img/b_img.png)
 
-- 
+
+- [Managed Memory Add.cu](./code/managed_mem_add.cu)
+
+- UM is first and foremost about ease of programming
+and programmer producitivity. 
 
 ---
+
+
+__oversubscription__
+
+---
+
+__deep copy__
+
+![w:1100](./img/deep_copy.png)
+
+- [Managed memory List.cu](./code/managed_mem_list.cu)
+
+--- 
+
+```
+class Managed {
+public:
+	void * operator new(size_t len){
+		void *ptr;
+		cudaMallocManaged(&ptr, len);
+		cudaDeviceSynchronize();
+		return ptr;
+	}
+
+	void operator delete(void *ptr) {
+
+		cudaDeviceSynchronize();
+		cudaFree(ptr);
+	}
+}
+
+```
+
+---
+
+```
+class umString : public Managed {
+  int length;
+  char *data;
+
+public:
+  umString(int len) : length(len) {
+    cudaMallocManaged(&data, length + 1);
+    data[length] = '\0';
+  }
+
+  // Copy constructor
+  umString(const umString &s) : length(s.length) {
+    cudaDeviceSynchronize();                 // ensure coherence
+    cudaMallocManaged(&data, length + 1);
+    std::memcpy(data, s.data, length + 1);
+  }
+
+  // Destructor
+  ~umString() {
+    cudaDeviceSynchronize();
+    cudaFree(data);
+  }
+
+  // Disable assignment for safety (optional)
+  umString &operator=(const umString &) = delete;
+};
+
+```
+
+---
+
+```
+
+class dataElem: public Managed {
+public:
+	int key;
+	umString name;
+}
+
+dataElem *data = new dataElem[10];
+
+```
+
+---
+
+Performance Tuning 
+
+- `cudamemPreFetchAsync`
+
+
 
 
