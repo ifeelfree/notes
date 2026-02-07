@@ -9,21 +9,25 @@
       
       
       
+        <link rel="prev" href="../../../languages/python/python/">
+      
+      
+        <link rel="next" href="../../mlops/hydra/">
       
       
         
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>Technical Notes</title>
+        <title>TensorFlow - Technical Notes</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
       
       
 
@@ -42,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -59,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#tensorflow" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -71,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Technical Notes" class="md-header__button md-logo" aria-label="Technical Notes" data-md-component="logo">
+    <a href="../../.." title="Technical Notes" class="md-header__button md-logo" aria-label="Technical Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -91,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              TensorFlow
             
           </span>
         </div>
@@ -169,7 +178,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Technical Notes" class="md-nav__button md-logo" aria-label="Technical Notes" data-md-component="logo">
+    <a href="../../.." title="Technical Notes" class="md-nav__button md-logo" aria-label="Technical Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -187,7 +196,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -308,7 +317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/computer/linux/ubuntu/" class="md-nav__link">
+      <a href="../../../computer/linux/ubuntu/" class="md-nav__link">
         
   
   
@@ -391,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/computer/popularapps/mkdocs/" class="md-nav__link">
+      <a href="../../../computer/popularapps/mkdocs/" class="md-nav__link">
         
   
   
@@ -528,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/languages/cplusplus/cplusplus/" class="md-nav__link">
+      <a href="../../../languages/cplusplus/cplusplus/" class="md-nav__link">
         
   
   
@@ -611,7 +620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/languages/cuda/cuda/" class="md-nav__link">
+      <a href="../../../languages/cuda/cuda/" class="md-nav__link">
         
   
   
@@ -694,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/languages/python/python/" class="md-nav__link">
+      <a href="../../../languages/python/python/" class="md-nav__link">
         
   
   
@@ -734,18 +743,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -766,7 +777,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -781,18 +792,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
         
           
           <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
@@ -813,7 +826,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -828,10 +841,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/machine_learning/tensorflow/tensorflow/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TensorFlow
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -847,6 +887,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-training-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Training Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -914,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/machine_learning/mlops/hydra/" class="md-nav__link">
+      <a href="../../mlops/hydra/" class="md-nav__link">
         
   
   
@@ -967,6 +1082,71 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-training-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Training Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -979,8 +1159,103 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="tensorflow">TensorFlow</h1>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><a href="https://medium.com/@majianglin2003/designing-a-production-ready-deep-learning-image-enhancement-tensorflow-framework-an-end-to-end-4df6be9a0080">Designing a Production-Ready Deep Learning Image Enhancement TensorFlow Framework: An End-to-End Software Architecture</a></li>
+</ul>
+<h2 id="dataset">Dataset</h2>
+<ul>
+<li>
+<p><a href="https://medium.com/@majianglin2003/writing-and-reading-datasets-with-tfrecord-and-lmdb-in-tensorflow-a49d6058b095">Writing and Reading Datasets with TFRecord and LMDB in TensorFlow</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/deterministic-data-augmentation-in-tensorflow-using-tf-data-dataset-c0abe17033a2">Deterministic Data Augmentation in TensorFlow Using tf.data.Dataset and tf.random.Generator.from_seed</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/a-practical-guide-to-creating-tf-data-dataset-in-tensorflow-63e95fd42daf">A Practical Guide to Creating tf.data.Dataset in TensorFlow</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/how-to-generate-a-tf-data-dataset-from-folders-04b3f9f1bcde">How to Generate a tf.data.Dataset from Folders</a></p>
+</li>
+<li>
+<p><a href="https://majianglin2003.medium.com/understanding-when-to-use-tf-py-function-in-tensorflow-25b01fb08dfb?postPublishedType=initial">Understanding When to Use tf.py_function in TensorFlow</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/optimizing-your-tensorflow-input-pipeline-cpu-vs-gpu-augmentation-and-how-to-find-the-bottleneck-47f43a7971fd">Optimizing Your TensorFlow Input Pipeline: CPU vs. GPU Augmentation and How to Find the Bottleneck</a></p>
+</li>
+</ul>
+<h2 id="model">Model</h2>
+<ul>
+<li>
+<p><a href="https://medium.com/dev-genius/inspecting-an-individual-keras-layer-visualization-and-summaries-8dd939008e6d">Inspecting an Individual Keras Layer: Visualization and Summaries</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/a-practical-toolkit-for-debugging-keras-models-93e0c491ff28">A Practical Toolkit for Debugging Keras Models</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/writing-a-robust-custom-keras-layer-a-practical-tutorial-86400c5c04c7">Writing a Robust Custom Keras Layer: A Practical Tutorial</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/@majianglin2003/saving-and-loading-keras-models-different-approaches-30e9e1e3030e">Saving and Loading Keras Models: Different Approaches</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/the-three-keras-model-paradigms-a-practical-guide-for-tensorflow-practitioners-062795cbd6ab">The Three Keras Model Paradigms: A Practical Guide for TensorFlow Practitioners</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/netron-the-neural-network-visualizer-every-ml-engineer-needs-08c9f438138b">Netron: The Neural Network Visualizer Every ML Engineer Needs</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/calling-a-pytorch-model-inside-a-tensorflow-keras-model-a-practical-inference-only-pattern-62a2ca15eb48">Calling a PyTorch Model Inside a TensorFlow Keras Model: A Practical Inference-Only Pattern</a></p>
+</li>
+</ul>
+<h2 id="model-training-pipeline">Model Training Pipeline</h2>
+<ul>
+<li>
+<p><a href="https://medium.com/dev-genius/the-training-argument-in-keras-what-it-really-means-and-how-to-use-it-correctly-21ad979c863c">The <code>training</code> Argument in Keras: What It Really Means and How to Use It Correctly</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/callbacks-in-tensorflow-model-fit-2c7943d42356">Callbacks in TensorFlow model.fit()</a></p>
+</li>
+<li>
+<p><a href="https://majianglin2003.medium.com/understanding-fit-evaluate-and-predict-how-keras-models-really-work-49b53973ce1a?postPublishedType=initial">Understanding fit, evaluate, and predict: How Keras Models Really Work</a></p>
+</li>
+<li>
+<p><a href="https://majianglin2003.medium.com/mastering-model-training-a-guide-to-custom-iterative-loops-in-tensorflow-c07f1c250a6d?postPublishedType=initial">Mastering Model Training: A Guide to Custom Iterative Loops in TensorFlow</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/@majianglin2003/the-keras-hybrid-separating-architecture-from-training-configuration-for-maximum-flexibility-6b3cbe42088a">The Keras Hybrid: Separating Architecture from Training Configuration for Maximum Flexibility</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/designing-a-keras-model-with-shared-weights-for-training-and-validation-9693c0d119f6">Designing a Keras Model with Shared Weights for Training and Validation</a></p>
+</li>
+</ul>
+<h2 id="model-deployment">Model Deployment</h2>
+<ul>
+<li>
+<p><a href="https://medium.com/dev-genius/post-training-quantization-ptq-in-tensorflow-keras-c6b9063f3640">Post-Training Quantization (PTQ) in TensorFlow Keras</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/dev-genius/a-practical-guide-to-quantization-aware-training-qat-in-tensorflow-cf6d3451caf0">A Practical Guide to Quantization-Aware Training (QAT) in TensorFlow</a></p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1017,10 +1292,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": [], "search": "/assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
