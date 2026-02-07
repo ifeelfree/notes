@@ -9,6 +9,8 @@ nav:
       - PopularApps:
         - "computer/popularapps/mkdocs.md"
   - Computer Languages:
+      - C++:
+        - "languages/cplusplus/cplusplus.md"
       - Cuda:
         - "languages/cuda/cuda.md"
       - Python:
